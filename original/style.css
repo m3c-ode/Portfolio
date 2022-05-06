@@ -1,0 +1,351 @@
+/*colors
+green #89cc8a rgba(130,173,203,1)
+blue #82adcb rgba(137,204,138,1)
+pink #FF4191 rgb(255, 65, 145, 1) - try #ffa6d2, 255, 166, 210,  #ff9acb
+, 255, 154, 203
+/* #FFE328 yellow*/
+
+
+/*  To Manipulate colors dynamically using variables and HSL codes
+:root {
+    --color:0, 100%; the base color
+    --l:50%; the initial lightness
+    
+    --color-primary: hsl(var(--color),var(--l));
+    --color-primary-darker: hsl(var(--color),calc(var(--l) - 5%));
+    --color-primary-darkest: hsl(var(--color),calc(var(--l) - 10%)); 
+} */
+
+
+/*
+css
+.color-pink {color: #ff9acb;}. hsl(331, 40%, 80%)
+color-green {color: #cbff9a;}. hsl(l91, 100%, 80%) / hsl(92, 41%, 64%)
+color-blue {color: #9acbff;} hsl(211, 100%, 80%) / hsl(211, 72%, 60%)
+
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+.color-pink {color: #ff9acb;}.color-green {color: #cbff9a;}.color-blue {color: #9acbff;}
+
+:root {
+    --pink-my : #ff9acb;
+    --blue-my : hsl(211, 72%, 60%) ;
+    --green-my : hsl(92, 41%, 64%); /* defining root variabble colors to use */
+}
+
+h1, h2, h3 {
+    font-family: "sablonup-college", athletic, rockwell, norwill, "neo sans", sans-serif ;
+	text-align: center;
+	margin: 5px;
+	-webkit-text-stroke:  3px black; /* outline */
+	color: var(--pink-my);
+    filter: brightness(85%); /* allows to control color, 100% baseline, less is darker, more is lighter */
+	text-shadow:
+       4px 4px 0 #FFE328,/* #FFE328 yellow*/
+     -1px -1px 0 #FFE328,  /* h-value, v-value, blur, color  */
+      3px -1px 0 #FFE328,
+      -1px 3px 0 #FFE328,
+       3px 3px 0 #FFE328;
+    letter-spacing: 10px;
+    font-size: 4.5em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2.5em;
+}
+
+p, a, label, input[type=submit] {
+    font-family: "proxima nova", sans-serif;
+    text-align: center;
+}
+
+nav, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 65px;
+    background: hsl(211, 72%, 60%); /* if blue, adjust borders and gradients */
+}
+
+nav a {
+    padding: 10px;
+}
+
+nav a:hover {
+    cursor: pointer;
+}
+
+.m3aa p {
+    text-align: center;
+    color: hsl(211, 72%, 60%);
+    /* filter: contrast(70%) brightness(50%); */
+    padding-bottom: 10px;
+    font-size: 1.1em;
+
+}
+
+.m3aa, .details, .bio {
+    position: relative;
+    padding: 20px 0;
+}
+
+.m3aa::after, .details::after, .slides::after, .bio::after {
+    content: "";
+    position: absolute;
+    background: var(--pink-my);
+    width: 75%;
+    height: 3px;
+    bottom: 0;
+    left : 12.5%;
+    margin-bottom: 10px;
+}
+
+footer {
+    padding: 15px ;
+    justify-content: space-around;
+    /* width: 100%;
+    position: absolute;
+    bottom: 0; */
+    display: flex;
+    align-self: flex-end;
+}
+
+body {
+    background: hsl(92, 41%, 64%); 
+    /* backdrop-filter: contrast(50%); */
+    /* -webkit-backdrop-filter: contrast(65%); */
+    /* background-color: rgba(0, 0, 0, .1); */
+}
+
+.details {
+    width: 75%;
+    text-align: center;
+    margin: auto;
+}
+
+.carousel-container h2{
+    letter-spacing: 3px;
+}
+
+.carousel-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    padding: 20px 0;
+}
+
+
+.slides {
+    display: none;
+    text-align: center;
+    z-index: 0;
+}
+
+.bio, .carousel-container, .contact {
+    border-radius: 10px;
+}
+
+/* To display the first slide when opening the link... coudl do in JS?? */
+.prospectAA {
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 2;
+}
+
+  /* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-bottom: 30px;
+}
+
+
+.active, .dot:hover{
+    background-color: #717171;
+}
+
+
+/* Fading animation - no need for now*/
+/* .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+} */
+
+/* Modal */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /* background-color: rgb(0,0,0); Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* Trying to put an image instead */
+    /* background-image: url("img/pool2.jpg"); */
+    background-blend-mode: darken;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Modal Contents */
+.bio, .carousel-container, .contact {
+    /* display: none; */
+    background-color: #fefefe;
+    /* background-image: url("img/pool2.jpg");
+    background-blend-mode: darken;
+    background-position: fixed;
+    background-position: ; */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.modal h2 {
+    margin: auto;
+    width: 90%;
+    text-align: center;
+}
+
+/* Shaping the Form */
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], input[type=email], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+form label.message {
+    margin-top: 30px;
+}
+div.send {
+    text-align: center;
+    background: hsl(211, 72%, 60%);
+}
+
+.contact p {
+    background: var(--blue-my);
+    color: var(--pink-my);
+    padding: 10px;
+}
+input[type=submit] {
+    background: hsl(211, 72%, 60%);
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.25em;
+    text-decoration: underline;
+}
+
+input[type=submit]:hover, nav a:hover {
+    text-shadow: 
+        1px 1px 0 hsl(331, 40%, 60%),
+        -1px 1px 0 hsl(331, 40%, 60%),
+        1px -1px 0 hsl(331, 40%, 60%),
+        -1px -1px 0 hsl(331, 40%, 60%),
+        0 0 10px hsl(331, 40%, 60%);
+}
+
+form input[type=checkbox]:checked {
+    color: hsl(331, 40%, 60%);
+}
+
+@media (max-width:1200px) {
+    .bio, .carousel-container, .contact {
+        max-width: 60%;
+    }
+}
+
+@media (max-width:788px) {
+    .bio, .carousel-container, .contact {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        padding: 15px 45px;
+    }
+    .bio, .carousel-container, .contact {
+        width: 80%;
+    }
+}

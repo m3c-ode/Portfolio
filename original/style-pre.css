@@ -1,0 +1,138 @@
+/*colors
+green #89cc8a rgba(130,173,203,1)
+blue #82adcb rgba(137,204,138,1)
+pink #FF4191 rgb(255, 65, 145, 1) */
+
+body {
+	background-color: #82adcb;
+}
+
+img {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+.m3aa {
+	text-align: center;
+	margin: 5px;
+	/*align-items: center;*/
+	background: radial-gradient(ellipse at center, rgba(137,204,138,1) 52%,rgba(130,173,203,1) 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+}
+
+.m3aatitle > * {
+	/*display: block;
+	align-items: center;
+	justify-content: center;*/
+	font-family: "sablonup-college", athletic, rockwell, norwill, "neo sans", sans-serif ;
+	text-align: center;
+	margin: 5px;
+	-webkit-text-stroke:  3px black;
+	color: rgba(255, 65, 145, .75);
+	text-shadow:
+       3px 3px 0 #FFE328,/* #FFE328 yellow*/
+     -1px -1px 0 #FFE328,  
+      1px -1px 0 #FFE328,
+      -1px 1px 0 #FFE328,
+       1px 1px 0 #FFE328;
+}
+
+.m3aatitle {
+	width: 600px;
+	text-align: justify-all;
+	margin: auto;
+/*	width: -moz-fit-content;*/
+  	width: fit-content;
+}
+
+.m3aatitle > h1 {
+	letter-spacing: 10px;
+	font-size: 4em;
+}
+
+.m3aatitle > h3 {
+	font-size: 3em;
+}
+
+.m3aa p {
+	font-family: "proxima nova", sans-serif;
+}
+
+/*.m3aatitle:after {
+  	content: "";
+  	display: inline-block;
+  	width: 100%;
+}*/
+
+.content {
+	display: inline-block;
+	width: -moz-fit-content;
+	height: -moz-fit-content;
+  	width: fit-content;
+  	height: fit-content;
+  	position: relative;
+ }
+
+.leftside {
+	display: inline-block;
+}
+
+.leftside h2 {
+	padding-left: 40px;
+}
+
+.details {
+	display: block;
+	width: 400px;
+	margin-left: 50px;
+}
+
+.bio {
+	display: block;
+	width: 400px;
+	margin-left: 50px;
+}
+
+h2 {
+	color: rgb(255, 65, 145, 1);
+}
+
+.programs {
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 800px;
+	border: 1px solid black;
+	float: right;
+	margin-left: auto;
+	/*height: -moz-fit-content;
+	height: fit-content;*/
+}
+
+.content h2 {
+	padding-left: 40px;
+	background-color: white;
+	color: rgb(255, 65, 145, 1)
+}
+
+.programnames {
+	/*display: inline-block;*/
+	/*position: relative;*/
+	width: 150px;
+	height: 100%;
+	border: 1px solid black;
+	padding-left: 40px;
+}
+
+.programdetails {
+	/*display: inline-block;*/
+	/*position: relative;*/
+	width: 400px;
+	height: 100%;
+	border: 1px solid black;
+}
+
+table {
+	width: 100%;
+}
+
