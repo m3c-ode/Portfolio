@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
+import Link from 'next/link';
 
 import { getSortedBeersData } from '../lib/beers';
 
@@ -22,7 +23,7 @@ export default function BeerList({ allBeersData }) {
                 <ul className={utilStyles.list}>
                     {allBeersData.map(({ id, date, title }) => (
                         <li className={utilStyles.listItem} key={id}>
-                            {title}
+                            <Link href="./beers/[id]"><a>{title}</a></Link>
                             <br />
                             {id}
                             <br />
@@ -31,6 +32,11 @@ export default function BeerList({ allBeersData }) {
                     ))}
                 </ul>
             </section>
+            <div className={utilStyles.backToHome}>
+                <Link href="/">
+                    <a>← Back to home</a>
+                </Link>
+            </div>
         </>
     );
 }
