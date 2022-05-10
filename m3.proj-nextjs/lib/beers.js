@@ -5,7 +5,6 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const beersDirectory = path.join(process.cwd(), 'beers');
-console.log(process.cwd());
 
 //fetches data from file system
 export function getSortedBeersData() {

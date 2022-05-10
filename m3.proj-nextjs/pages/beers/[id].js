@@ -1,6 +1,8 @@
 import Layout from "../../components/layout";
 import { getAllBeersIds, getBeersData } from "../../lib/beers";
 import Head from 'next/head';
+import Date from '../../components/date';
+import utilStyles from '../../styles/utils.module.css';
 
 
 
@@ -8,15 +10,15 @@ export default function Post({ beerData }) {
     return (
         <Layout>
             <Head>
-                <title>{postData.title}</title>
+                <title>{beerData.title}</title>
             </Head>
-            {beerData.title}
-            <br />
-            {beerData.id}
-            <br />
-            {beerData.date}
-            <br />
-            <div dangerouslySetInnerHTML={{ __html: beerData.contentHtml }} />
+            <article>
+                <h1 className={utilStyles.headingXl}>{beerData.title}</h1>
+                <div className={utilStyles.lightText}>
+                    <Date dateString={beerData.date} />
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: beerData.contentHtml }} />
+            </article>
         </Layout>);
 }
 
